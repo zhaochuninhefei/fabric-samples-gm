@@ -1,0 +1,5 @@
+.vscode/settings.json
+test-network/mychannel_config.block
+test-network/mychannel_config.json
+test-network/mychannel_newest.block
+test-network/mychannel_newest.json
