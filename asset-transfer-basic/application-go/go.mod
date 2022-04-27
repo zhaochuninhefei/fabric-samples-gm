@@ -128,4 +128,4 @@ require (
 	sigs.k8s.io/yaml v1.2.0 // indirect
 )
 
-replace gitee.com/zhaochuninhefei/fabric-sdk-go-gm => /home/zhaochun/work/sources/gcbaas/fabric-sdk-go-gm
+// replace gitee.com/zhaochuninhefei/fabric-sdk-go-gm => /home/zhaochun/work/sources/gcbaas/fabric-sdk-go-gm

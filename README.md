@@ -4,7 +4,7 @@ fabric-samples-gm
 基于`fabric-samples`的master分支(27ac653)的国密改造。
 
 # 使用说明
-目前仅完成go1.17.5环境下最简单的国密改造后智能合约运行示例。
+这里说明一下`go1.17.5`环境下国密改造后最简单的智能合约运行示例。
 
 - fabric-gm : 参考 "https://gitee.com/zhaochuninhefei/fabric-gm", 编译出对应的本地二进制文件与docker镜像。
 - 智能合约: `asset-transfer-basic/chaincode-go`
