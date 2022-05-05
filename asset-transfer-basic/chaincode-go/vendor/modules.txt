@@ -20,7 +20,7 @@ gitee.com/zhaochuninhefei/fabric-protos-go-gm/ledger/queryresult
 gitee.com/zhaochuninhefei/fabric-protos-go-gm/ledger/rwset
 gitee.com/zhaochuninhefei/fabric-protos-go-gm/msp
 gitee.com/zhaochuninhefei/fabric-protos-go-gm/peer
-# gitee.com/zhaochuninhefei/gmgo v0.0.9
+# gitee.com/zhaochuninhefei/gmgo v0.0.12
 ## explicit; go 1.17
 gitee.com/zhaochuninhefei/gmgo/gmhttp
 gitee.com/zhaochuninhefei/gmgo/gmhttp/httptrace

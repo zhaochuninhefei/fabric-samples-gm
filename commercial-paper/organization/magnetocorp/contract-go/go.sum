@@ -38,8 +38,9 @@ gitee.com/zhaochuninhefei/fabric-contract-api-go-gm v0.0.4 h1:+GZiio2BcPJ6d0574q
 gitee.com/zhaochuninhefei/fabric-contract-api-go-gm v0.0.4/go.mod h1:mrpk1FhrfKWFCfTUzqdUUMG7VcOo8WqHAnJ8tG7+yW8=
 gitee.com/zhaochuninhefei/fabric-protos-go-gm v0.0.1 h1:3SLYH6k5a/eDA3p2uxhSTGxT6h85VjPai/0NoHHSC6E=
 gitee.com/zhaochuninhefei/fabric-protos-go-gm v0.0.1/go.mod h1:cAEwQ9OO7YY3kJ4hqkLVhtk8j+y0etmvll3ZwOf044E=
-gitee.com/zhaochuninhefei/gmgo v0.0.8 h1:aNgeeBJ82YoT5ZS+7tp8Y/F49ENPx5f95CV/y2ATHjQ=
 gitee.com/zhaochuninhefei/gmgo v0.0.8/go.mod h1:toMA93O2xt6VLnd7An85Iy7+RSJ4jhf1sVOBTU8zZ50=
+gitee.com/zhaochuninhefei/gmgo v0.0.11 h1:7UzApFwakpu1fkpQexQkGFwdXZ3Iyye/auvllRSxldE=
+gitee.com/zhaochuninhefei/gmgo v0.0.11/go.mod h1:toMA93O2xt6VLnd7An85Iy7+RSJ4jhf1sVOBTU8zZ50=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
