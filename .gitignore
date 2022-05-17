@@ -3,3 +3,10 @@ test-network/mychannel_config.block
 test-network/mychannel_config.json
 test-network/mychannel_newest.block
 test-network/mychannel_newest.json
+bin/configtxgen
+bin/configtxlator
+bin/cryptogen
+bin/discover
+bin/idemixgen
+bin/orderer
+bin/peer
