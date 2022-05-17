@@ -10,3 +10,5 @@ bin/discover
 bin/idemixgen
 bin/orderer
 bin/peer
+bin/fabric-ca-client
+bin/fabric-ca-server
