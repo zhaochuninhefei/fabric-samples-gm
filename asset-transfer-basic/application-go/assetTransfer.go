@@ -9,31 +9,31 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"path/filepath"
 
 	"gitee.com/zhaochuninhefei/fabric-sdk-go-gm/pkg/core/config"
 	"gitee.com/zhaochuninhefei/fabric-sdk-go-gm/pkg/gateway"
+	"gitee.com/zhaochuninhefei/zcgolog/zclog"
 )
 
 func main() {
-	log.Println("============ application-golang starts ============")
+	zclog.Infoln("============ asset-transfer-basic/application-go/assetTransfer.go 开始执行 ============")
 
 	err := os.Setenv("DISCOVERY_AS_LOCALHOST", "true")
 	if err != nil {
-		log.Fatalf("Error setting DISCOVERY_AS_LOCALHOST environemnt variable: %v", err)
+		zclog.Fatalf("Error setting DISCOVERY_AS_LOCALHOST environemnt variable: %v", err)
 	}
 
 	wallet, err := gateway.NewFileSystemWallet("wallet")
 	if err != nil {
-		log.Fatalf("Failed to create wallet: %v", err)
+		zclog.Fatalf("Failed to create wallet: %v", err)
 	}
 
 	if !wallet.Exists("appUser") {
 		err = populateWallet(wallet)
 		if err != nil {
-			log.Fatalf("Failed to populate wallet contents: %v", err)
+			zclog.Fatalf("Failed to populate wallet contents: %v", err)
 		}
 	}
 
@@ -52,69 +52,81 @@ func main() {
 		gateway.WithIdentity(wallet, "appUser"),
 	)
 	if err != nil {
-		log.Fatalf("Failed to connect to gateway: %v", err)
+		zclog.Fatalf("Failed to connect to gateway: %v", err)
 	}
 	defer gw.Close()
 
 	network, err := gw.GetNetwork("mychannel")
 	if err != nil {
-		log.Fatalf("Failed to get network: %v", err)
+		zclog.Fatalf("Failed to get network: %v", err)
 	}
 
 	contract := network.GetContract("basic")
 
-	log.Println("--> Submit Transaction: InitLedger, function creates the initial set of assets on the ledger")
+	zclog.Infoln("--> Submit Transaction: InitLedger, 初始化合约数据")
 	result, err := contract.SubmitTransaction("InitLedger")
 	if err != nil {
-		log.Fatalf("Failed to Submit transaction: %v", err)
+		zclog.Errorf("Failed to Submit transaction: %v", err)
+	} else {
+		zclog.Infof("成功初始化合约数据 %s", string(result))
 	}
-	log.Println(string(result))
 
-	log.Println("--> Evaluate Transaction: GetAllAssets, function returns all the current assets on the ledger")
+	zclog.Infoln("--> Evaluate Transaction: GetAllAssets, 查看合约所有数据")
 	result, err = contract.EvaluateTransaction("GetAllAssets")
 	if err != nil {
-		log.Fatalf("Failed to evaluate transaction: %v", err)
+		zclog.Fatalf("Failed to evaluate transaction: %v", err)
 	}
-	log.Println(string(result))
+	zclog.Infoln(string(result))
 
-	log.Println("--> Submit Transaction: CreateAsset, creates new asset with ID, color, owner, size, and appraisedValue arguments")
-	result, err = contract.SubmitTransaction("CreateAsset", "asset13", "yellow", "5", "Tom", "1300")
+	zclog.Infoln("--> Evaluate Transaction: AssetExists, 检查数据asset13是否存在")
+	result, err = contract.EvaluateTransaction("AssetExists", "asset13")
 	if err != nil {
-		log.Fatalf("Failed to Submit transaction: %v", err)
+		zclog.Fatalf("Failed to evaluate transaction: %v\n", err)
 	}
-	log.Println(string(result))
+	zclog.Infoln(string(result))
+	if string(result) != "true" {
+		zclog.Infoln("--> Submit Transaction: CreateAsset, 创建新数据asset13")
+		result, err = contract.SubmitTransaction("CreateAsset", "asset13", "yellow", "5", "Tom", "1300")
+		if err != nil {
+			zclog.Errorf("Failed to Submit transaction: %v", err)
+		} else {
+			zclog.Infoln(string(result))
+		}
+	}
 
-	log.Println("--> Evaluate Transaction: ReadAsset, function returns an asset with a given assetID")
+	zclog.Infoln("--> Evaluate Transaction: ReadAsset, 读取数据asset13")
 	result, err = contract.EvaluateTransaction("ReadAsset", "asset13")
 	if err != nil {
-		log.Fatalf("Failed to evaluate transaction: %v\n", err)
+		zclog.Fatalf("Failed to evaluate transaction: %v\n", err)
 	}
-	log.Println(string(result))
+	zclog.Infoln(string(result))
 
-	log.Println("--> Evaluate Transaction: AssetExists, function returns 'true' if an asset with given assetID exist")
-	result, err = contract.EvaluateTransaction("AssetExists", "asset1")
-	if err != nil {
-		log.Fatalf("Failed to evaluate transaction: %v\n", err)
+	if string(result) == "{\"ID\":\"asset13\",\"color\":\"yellow\",\"size\":5,\"owner\":\"Tom\",\"appraisedValue\":1300}" {
+		zclog.Infoln("--> Submit Transaction: TransferAsset asset13, 将数据asset13的所有者改为zhaochun")
+		_, err = contract.SubmitTransaction("TransferAsset", "asset13", "zhaochun")
+		if err != nil {
+			zclog.Fatalf("Failed to Submit transaction: %v", err)
+		}
+	} else {
+		zclog.Infoln("--> Submit Transaction: TransferAsset asset13, 将数据asset13的所有者改为Tom")
+		_, err = contract.SubmitTransaction("TransferAsset", "asset13", "Tom")
+		if err != nil {
+			zclog.Fatalf("Failed to Submit transaction: %v", err)
+		}
 	}
-	log.Println(string(result))
 
-	log.Println("--> Submit Transaction: TransferAsset asset1, transfer to new owner of Tom")
-	_, err = contract.SubmitTransaction("TransferAsset", "asset1", "Tom")
+	zclog.Infoln("--> Evaluate Transaction: ReadAsset, 读取数据asset13")
+	result, err = contract.EvaluateTransaction("ReadAsset", "asset13")
 	if err != nil {
-		log.Fatalf("Failed to Submit transaction: %v", err)
+		zclog.Fatalf("Failed to evaluate transaction: %v", err)
 	}
+	zclog.Infoln(string(result))
 
-	log.Println("--> Evaluate Transaction: ReadAsset, function returns 'asset1' attributes")
-	result, err = contract.EvaluateTransaction("ReadAsset", "asset1")
-	if err != nil {
-		log.Fatalf("Failed to evaluate transaction: %v", err)
-	}
-	log.Println(string(result))
-	log.Println("============ application-golang ends ============")
+	zclog.Infoln("============ asset-transfer-basic/application-go/assetTransfer.go 执行结束 ============")
 }
 
 func populateWallet(wallet *gateway.Wallet) error {
-	log.Println("============ Populating wallet ============")
+	zclog.Infoln("============ Populating wallet ============")
 	credPath := filepath.Join(
 		"..",
 		"..",

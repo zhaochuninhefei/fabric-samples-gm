@@ -6,11 +6,11 @@ package auction
 
 import (
 	"bytes"
-	"crypto/sha256"
 	"encoding/json"
 	"fmt"
 
 	"gitee.com/zhaochuninhefei/fabric-contract-api-go-gm/contractapi"
+	"gitee.com/zhaochuninhefei/gmgo/sm3"
 )
 
 type SmartContract struct {
@@ -291,7 +291,7 @@ func (s *SmartContract) RevealBid(ctx contractapi.TransactionContextInterface, a
 	// on the public ledger. This checks that the bidder is telling the truth
 	// about the value of their bid
 
-	hash := sha256.New()
+	hash := sm3.New()
 	hash.Write(transientBidJSON)
 	calculatedBidJSONHash := hash.Sum(nil)
 

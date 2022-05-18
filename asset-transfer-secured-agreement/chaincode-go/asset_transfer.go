@@ -6,7 +6,6 @@ package main
 
 import (
 	"bytes"
-	"crypto/sha256"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -15,6 +14,7 @@ import (
 	"gitee.com/zhaochuninhefei/fabric-chaincode-go-gm/pkg/statebased"
 	"gitee.com/zhaochuninhefei/fabric-chaincode-go-gm/shim"
 	"gitee.com/zhaochuninhefei/fabric-contract-api-go-gm/contractapi"
+	"gitee.com/zhaochuninhefei/gmgo/sm3"
 	"github.com/golang/protobuf/ptypes"
 )
 
@@ -212,7 +212,7 @@ func (s *SmartContract) VerifyAssetProperties(ctx contractapi.TransactionContext
 		return false, fmt.Errorf("asset private properties hash does not exist: %s", assetID)
 	}
 
-	hash := sha256.New()
+	hash := sm3.New()
 	hash.Write(immutablePropertiesJSON)
 	calculatedPropertiesHash := hash.Sum(nil)
 
@@ -301,7 +301,7 @@ func verifyTransferConditions(ctx contractapi.TransactionContextInterface,
 		return fmt.Errorf("asset private properties hash does not exist: %s", asset.ID)
 	}
 
-	hash := sha256.New()
+	hash := sm3.New()
 	hash.Write(immutablePropertiesJSON)
 	calculatedPropertiesHash := hash.Sum(nil)
 
@@ -343,7 +343,7 @@ func verifyTransferConditions(ctx contractapi.TransactionContextInterface,
 		return fmt.Errorf("buyer price for %s does not exist", asset.ID)
 	}
 
-	hash = sha256.New()
+	hash = sm3.New()
 	hash.Write(priceJSON)
 	calculatedPriceHash := hash.Sum(nil)
 
