@@ -3,7 +3,7 @@ module asset-transfer-basic
 go 1.17
 
 require (
-	gitee.com/zhaochuninhefei/fabric-sdk-go-gm v0.0.3
+	gitee.com/zhaochuninhefei/fabric-sdk-go-gm v0.0.4
 	gitee.com/zhaochuninhefei/zcgolog v0.0.13
 )
 
@@ -131,7 +131,7 @@ require (
 )
 
 replace (
-	gitee.com/zhaochuninhefei/fabric-sdk-go-gm => /home/zhaochun/work/sources/gcbaas/fabric-sdk-go-gm
+	// gitee.com/zhaochuninhefei/fabric-sdk-go-gm => /home/zhaochun/work/sources/gcbaas/fabric-sdk-go-gm
 	github.com/zmap/zcrypto => github.com/zmap/zcrypto v0.0.0-20190729165852-9051775e6a2e
 	github.com/zmap/zlint => github.com/zmap/zlint v0.0.0-20190806154020-fd021b4cfbeb
 )

@@ -29,7 +29,8 @@ func main() {
 	if err != nil {
 		zclog.Fatalf("Failed to create wallet: %v", err)
 	}
-
+	// 清理钱包，确保获取最新的客户端信息
+	wallet.Remove("appUser")
 	if !wallet.Exists("appUser") {
 		err = populateWallet(wallet)
 		if err != nil {
@@ -126,7 +127,7 @@ func main() {
 }
 
 func populateWallet(wallet *gateway.Wallet) error {
-	zclog.Infoln("============ Populating wallet ============")
+	zclog.Infoln("============ 获取客户端钱包数据:User1@org1.example.com ============")
 	credPath := filepath.Join(
 		"..",
 		"..",
