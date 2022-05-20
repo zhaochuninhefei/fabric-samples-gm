@@ -10,7 +10,7 @@ require (
 
 require (
 	gitee.com/zhaochuninhefei/fabric-protos-go-gm v0.0.1 // indirect
-	gitee.com/zhaochuninhefei/zcgolog v0.0.7 // indirect
+	gitee.com/zhaochuninhefei/zcgolog v0.0.14 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect

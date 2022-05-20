@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	gitee.com/zhaochuninhefei/fabric-sdk-go-gm v0.0.4
-	gitee.com/zhaochuninhefei/zcgolog v0.0.13
+	gitee.com/zhaochuninhefei/zcgolog v0.0.14
 )
 
 require (
