@@ -5,7 +5,7 @@ go 1.17
 require (
 	gitee.com/zhaochuninhefei/fabric-chaincode-go-gm v0.0.5
 	gitee.com/zhaochuninhefei/fabric-contract-api-go-gm v0.0.4
-	gitee.com/zhaochuninhefei/gmgo v0.0.15
+	gitee.com/zhaochuninhefei/gmgo v0.0.16
 )
 
 require (

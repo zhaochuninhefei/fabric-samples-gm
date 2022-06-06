@@ -6,7 +6,7 @@ require (
 	gitee.com/zhaochuninhefei/fabric-chaincode-go-gm v0.0.5
 	gitee.com/zhaochuninhefei/fabric-contract-api-go-gm v0.0.4
 	gitee.com/zhaochuninhefei/fabric-protos-go-gm v0.0.1
-	gitee.com/zhaochuninhefei/gmgo v0.0.15
+	gitee.com/zhaochuninhefei/gmgo v0.0.16
 	github.com/stretchr/testify v1.7.0
 	google.golang.org/protobuf v1.26.0
 )

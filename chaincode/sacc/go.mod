@@ -8,7 +8,7 @@ require (
 )
 
 require (
-	gitee.com/zhaochuninhefei/gmgo v0.0.15 // indirect
+	gitee.com/zhaochuninhefei/gmgo v0.0.16 // indirect
 	gitee.com/zhaochuninhefei/zcgolog v0.0.14 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect

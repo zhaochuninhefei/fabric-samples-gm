@@ -2,7 +2,7 @@ module fabcar
 
 go 1.17
 
-require gitee.com/zhaochuninhefei/fabric-sdk-go-gm v0.0.5
+require gitee.com/zhaochuninhefei/fabric-sdk-go-gm v0.0.6
 
 require (
 	bitbucket.org/creachadair/shell v0.0.6 // indirect
@@ -10,7 +10,7 @@ require (
 	gitee.com/zhaochuninhefei/cfssl-gm v0.0.4 // indirect
 	gitee.com/zhaochuninhefei/fabric-config-gm v0.0.4 // indirect
 	gitee.com/zhaochuninhefei/fabric-protos-go-gm v0.0.1 // indirect
-	gitee.com/zhaochuninhefei/gmgo v0.0.15 // indirect
+	gitee.com/zhaochuninhefei/gmgo v0.0.16 // indirect
 	gitee.com/zhaochuninhefei/zcgolog v0.0.14 // indirect
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible // indirect
 	github.com/benbjohnson/clock v1.1.0 // indirect
