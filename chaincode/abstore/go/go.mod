@@ -7,7 +7,7 @@ require gitee.com/zhaochuninhefei/fabric-contract-api-go-gm v0.0.4
 require (
 	gitee.com/zhaochuninhefei/fabric-chaincode-go-gm v0.0.5 // indirect
 	gitee.com/zhaochuninhefei/fabric-protos-go-gm v0.0.1 // indirect
-	gitee.com/zhaochuninhefei/gmgo v0.0.14 // indirect
+	gitee.com/zhaochuninhefei/gmgo v0.0.15 // indirect
 	gitee.com/zhaochuninhefei/zcgolog v0.0.14 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
