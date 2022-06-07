@@ -90,7 +90,7 @@ configtxlator proto_decode  --type common.Block --input mychannel_config.block >
 # 注意，需要本地openssl支持国密算法。
 dir_test_network=${PWD}
 cd organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/signcerts/
-openssl x509 -text -in peer0.org1.example.com-cert.pem
+openssl x509 -text --no-out -in *.pem
 
 ```
 
