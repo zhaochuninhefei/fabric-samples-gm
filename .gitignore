@@ -21,3 +21,4 @@ bin/fabric-ca-server
 bin/idemixgen
 bin/orderer
 bin/peer
+.idea/
